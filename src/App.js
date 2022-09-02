@@ -1,22 +1,50 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
+import About from "./components/About";
 import Login from "./components/Login";
-
+import Events from "./components/Events";
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'font-awesome/css/font-awesome.min.css';
 function App() {
   const [inputlogin, setInputlogin] = useState({});
-
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+  let vw = window.innerWidth * 0.01;
+  document.documentElement.style.setProperty("--vw", `${vw}px`);
+  
   return (
-    <div>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route
-          exact
-          path="/login"
-          element={<Login inputlogin={inputlogin} setInputlogin={setInputlogin} />}
-        />
-      </Routes>
+    <div className="App">
+      <html>
+        <head>
+          <meta charSet="utf-8" />
+          <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-
+awesome.min.css"
+            rel="stylesheet"
+            integrity="sha384-
+wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+            crossorigin="anonymous"
+          ></link>
+          
+          <title>CAYA</title>
+        </head>
+        <main>
+        
+
+          <Routes>
+            <Route exact path="/About" element={<About />} />
+            <Route
+              exact
+              path="/"
+              element={
+                <Login inputlogin={inputlogin} setInputlogin={setInputlogin} />
+              }
+            />
+            <Route exact path="/Events" element={<Events />} />
+          </Routes>
+        </main>
+      </html>
     </div>
   );
 }

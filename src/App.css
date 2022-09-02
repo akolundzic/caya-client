@@ -1,38 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@600&display=swap");
+
+body {
+  margin-top: -1%;
+}
 .App {
-  text-align: center;
+  position: relative;
+  /* width: 100%;
+  /* height: 38.2 rem; */
+  background-size: contain;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: calc(var(--vh, 1vh) * 100);
+  background-image: url("./img/desertbackgroundnew.svg");
+  /* background: linear-gradient(#9198e5, #e66465); */
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.loginForm {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.loginForm input {
+  width: 60%;
+  height: 2.5rem;
+  padding: 2%;
+  margin-bottom: 2%;
+  border-radius: 2rem;
+  border: 2px solid #ffebc5;
+}
+.navbar {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.icons {
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  /* margin-left:10%;
+  margin-right:10%; */
 }
 
-.App-link {
-  color: #61dafb;
+.icons button {
+  background-color: transparent;
+  color: #ffffff;
+}
+#loginicons {
+  width: 5%;
+}
+button {
+  border: none;
+}
+.button {
+  height: 2rem;
+  width: 4rem;
+  justify-content: center;
+  border: none;
+  color: rgba(152, 150, 148, 1);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  font-family: "Roboto";
+  font-style: normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#title {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Teko", sans-serif;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/*Boxes*/
+.about {
+  position: relative;
+  width: 90vw;
+  height: 45vh;
+  left: 5%;
+  display: flex;
+  background-color: rgba(254, 255, 251, 1);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+/*Fonts*/
+h2 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #a58d76;
+  margin: top -5prem;
+}
+p {
+  /* position: absolute; */
+  /* width: 219px;
+  height: 51px; */
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  color: #928a82;
+}
+#cardtext {
+  width: 239px;
+  height: 20px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #766e6e;
+}
+.about-text {
+  color: rgba(146, 138, 130, 1);
+  font-size: 14px;
+  line-height: 16.5px;
+  font-weight: 500;
+  padding-left: 3%;
+  position: absolute;
+  text-align: center;
+}
+.subtitles {
+  position: absolute;
+  flex-direction: row;
+}
+/*Event styles*/
+.oneevent {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: rgba(215, 215, 215, 1);
+  border: 1px rgba(215, 215, 215, 1);
+  padding: 2%;
+}
+.imagebox {
+  width: 115px;
+  height: 73px;
+  background: #949494;
+  border: 1px solid #ffffff;
+}
+#subtitles {
+  color: rgba(118, 110, 110, 1);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.navbar button {
+  border: none;
+  background-color: transparent;
+  padding: 1% 4%;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: rgba(254, 255, 251, 1);
+}
+#Plus {
+  font-size: 4rem;
+  width: 20px;
+  font-weight: 700;
+}
+#house {
+  font-size: 2.5rem;
+}
+.share {
+  color: rgba(165, 141, 118, 1);
+  width: 2rem;
+  height: 2rem;
 }

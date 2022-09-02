@@ -1,10 +1,16 @@
 import React from "react";
+import Navbar from "./Navbar";
+import Cardevent from "./Cardevent";
+
 
 const Events = () => {
   return (
-    <div>
-      <h1>Events</h1>
-    </div>
+    <>
+      <Navbar />
+      <Cardevent />
+      
+      
+    </>
   );
 };
 
