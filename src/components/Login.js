@@ -1,5 +1,6 @@
 import React from "react";
 import { FaUserPlus, FaInfoCircle } from "react-icons/fa";
+
 function Login({ inputlogin, setInputlogin }) {
   //get props from form, save into setLogin = [email, password]
 

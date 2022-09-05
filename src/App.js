@@ -4,15 +4,18 @@ import { Routes, Route } from "react-router-dom";
 import About from "./components/About";
 import Login from "./components/Login";
 import Events from "./components/Events";
+import Signup from "./components/Signup";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'font-awesome/css/font-awesome.min.css';
+import Testtailwind from "./components/testtailwind";
+import "font-awesome/css/font-awesome.min.css";
 function App() {
   const [inputlogin, setInputlogin] = useState({});
+  const [inputsignup, setInputsignup] = useState({});
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty("--vh", `${vh}px`);
   let vw = window.innerWidth * 0.01;
   document.documentElement.style.setProperty("--vw", `${vw}px`);
-  
+
   return (
     <div className="App">
       <html>
@@ -26,24 +29,32 @@ awesome.min.css"
 wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
             crossorigin="anonymous"
           ></link>
-          
+          <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet"></link>
+
           <title>CAYA</title>
         </head>
-        <main>
-        
-
-          <Routes>
-            <Route exact path="/About" element={<About />} />
-            <Route
-              exact
-              path="/"
-              element={
-                <Login inputlogin={inputlogin} setInputlogin={setInputlogin} />
-              }
-            />
-            <Route exact path="/Events" element={<Events />} />
-          </Routes>
-        </main>
+        <Routes>
+          <Route exact path="/About" element={<About />} />
+          <Route
+            exact
+            path="/"
+            element={
+              <Login inputlogin={inputlogin} setInputlogin={setInputlogin} />
+            }
+          />
+          <Route exact path="/Events" element={<Events />} />
+          <Route
+            exact
+            path="/Signup"
+            element={
+              <Signup
+                inputsignup={inputsignup}
+                setInputsignup={setInputsignup}
+              />
+            }
+          />
+          <Route exact path="/test" element={<Testtailwind />} />
+        </Routes>
       </html>
     </div>
   );
