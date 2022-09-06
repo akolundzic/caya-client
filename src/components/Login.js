@@ -1,5 +1,6 @@
 import React from "react";
 import { FaUserPlus, FaInfoCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Login({ inputlogin, setInputlogin }) {
   //get props from form, save into setLogin = [email, password]
@@ -34,15 +35,15 @@ function Login({ inputlogin, setInputlogin }) {
         {/* <button onClick={submitTodoHandler} type="submit" id="new-task-submit"><i className="fa-solid fa-square-plus"></i></button> */}
       </form>
       <div className="icons">
-        <button id="house">
+        <Link to="/signup" id="house">
           <FaUserPlus/>
-        </button>
+        </Link>
         <button>
           <img src={require("./SOS.svg")} />
         </button>
-        <button id="house">
+        <Link to="/about" id="house">
           <FaInfoCircle />
-        </button>
+        </Link>
       </div>
     </div>
   );

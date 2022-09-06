@@ -90,41 +90,6 @@ const Signup = ({ setInputsignup, inputsignup }) => {
             />
           </Col>
         </Row>
-        {/* <Row>
-          <Col sm={9}>
-            <h3>Adresse</h3>
-            <input
-              name="streetname"
-              value={inputsignup.streetname}
-              type="text"
-              id="streetname"
-              placeholder="Straßenname"
-              onChange={loginHandler}
-            />
-          </Col>
-          <Col sm={2}>
-            <input
-              name="nr"
-              value={inputsignup.nr}
-              type="text"
-              id="nr"
-              placeholder="Nr."
-              onChange={loginHandler}
-            />
-          </Col>
-        </Row>
-        <Row>
-          <Col sm={9}>
-            <input
-              name="district"
-              value={inputsignup.district}
-              type="text"
-              id="district"
-              placeholder="Bezirk"
-              onChange={loginHandler}
-            />
-          </Col>
-        </Row> */}
         <Row>
           <Col sm={11}>
             <h3>Passwort</h3>
@@ -138,51 +103,10 @@ const Signup = ({ setInputsignup, inputsignup }) => {
             />
           </Col>
         </Row>
-        <button onClick={sendData}>GO!</button>
+        <button className="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={sendData}>GO!</button>
       </Container>
     </div>
   );
 };
 
 export default Signup;
-
-{
-  /* <form className="loginForm">
-    <h3>Name</h3>
-        <input
-          name="name"
-          // value={inputlogin.email}
-          type="text"
-          id="name"
-          placeholder="Name"
-          // onChange={loginHandler}
-        /> */
-}
-// <input
-//   name="surname"
-//   // value={inputlogin.password}
-//   type="text"
-//   id="surname"
-//   placeholder="Nachname"
-//   // onChange={loginHandler}
-// />
-// {/* <button onClick={submitTodoHandler} type="submit" id="new-task-submit"><i className="fa-solid fa-square-plus"></i></button> */}
-// <br></br>
-// <h3>Adresse</h3>
-// <input
-//   name="streetname"
-//   // value={inputlogin.password}
-//   type="text"
-//   id="streetname"
-//   placeholder="Straßenname"
-//   // onChange={loginHandler}
-// />
-// <input
-//   name="nr"
-//   // value={inputlogin.password}
-//   type="text"
-//   id="nr"
-//   placeholder="Nr."
-// onChange={loginHandler}
-//   />
-// </form>

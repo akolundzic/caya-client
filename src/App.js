@@ -8,11 +8,14 @@ import Signup from "./components/Signup";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Testtailwind from "./components/testtailwind";
 import "font-awesome/css/font-awesome.min.css";
+
 function App() {
   const [inputlogin, setInputlogin] = useState({});
   const [inputsignup, setInputsignup] = useState({});
+
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty("--vh", `${vh}px`);
+  
   let vw = window.innerWidth * 0.01;
   document.documentElement.style.setProperty("--vw", `${vw}px`);
 
