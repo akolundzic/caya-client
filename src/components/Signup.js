@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Navbar from "./Navbar";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 const Signup = ({ setInputsignup, inputsignup }) => {
   const loginHandler = (e) => {
@@ -30,33 +31,16 @@ const Signup = ({ setInputsignup, inputsignup }) => {
         });
       // this.setState({ data: json });
     } catch (err) {
-      //   // .post("https://soab-app.herokuapp.com/", {
-      //   .post("http://localhost:8000/auth/signup", {
-      //     email: inputsignup.email,
-      //     name: inputsignup.firstname,
-      //     surname: inputsignup.surname,
-      //     password: inputsignup.password,
-
-      //   })
-      //   .then((res) => {
-      //     console.log(res);
-      //   })
-      // .catch((err) => {
-      //   console.log(err);
-      // });
-
       console.log(err);
     }
   };
   return (
     <div>
       <Navbar />
-
       <Container className="fluid" id="sizeofrow">
         <Row>
           <Col sm={11}>
             <h3>Email</h3>
-
             <input
               name="email"
               value={inputsignup.email}
@@ -103,7 +87,7 @@ const Signup = ({ setInputsignup, inputsignup }) => {
             />
           </Col>
         </Row>
-        <button className="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={sendData}>GO!</button>
+        <Link to="/" className="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={sendData}>GO!</Link>
       </Container>
     </div>
   );

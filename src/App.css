@@ -78,7 +78,7 @@ button {
   border: none;
 }
 .go{
-  
+
 }
 .button {
   height: 2rem;
@@ -215,3 +215,22 @@ p {
   width: 2rem;
   height: 2rem;
 }
+/*User profile style*/
+.usercontainer{
+  display: flex;
+  min-height: 100wh;
+  justify-content: space-between;
+  background-color: #FEFFFB;
+  border: 1px solid  rgba(165, 141, 118, 1);
+  
+}
+.pic{
+  padding: 5%;
+  background-color:  rgb(212, 183, 156);
+}
+.iconcolor{
+  color: rgba(165, 141, 118, 1);
+ 
+
+}
+

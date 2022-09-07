@@ -1,17 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaUserPlus, FaInfoCircle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
-function Login({ inputlogin, setInputlogin }) {
+function Login({}) {
   //get props from form, save into setLogin = [email, password]
+  const [inputlogin, setInputlogin] = useState({ email: "", password: "" });
+  const [id, setId] = useState("")
+  
+  const navigate = useNavigate();
 
   const loginHandler = (e) => {
+    // console.log("we are here");
     setInputlogin((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
-  //   console.log(inputlogin);
+  
+  
+
+
+
+  const submitTodoHandler = (e) => {
+    e.preventDefault();
+    if (inputlogin.email === "" || inputlogin.password === "") {
+     
+      alert("no empty fields");
+    } else {
+      console.log("else");
+      axios
+        .post("http://localhost:8000/auth/login", {
+          email: inputlogin.email,
+          password: inputlogin.password,
+        })
+        .then((response) => {
+        console.log(response.data.id);
+        navigate("/profile/"+response.data.id);
+    });
+    }
+
+    // try{
+
+    // }
+    // catch(err){
+    //   console.log(err);
+    // }
+  };
+
   return (
     <div>
       <h1 id="title">ComeAsYouAre</h1>
@@ -32,11 +68,18 @@ function Login({ inputlogin, setInputlogin }) {
           placeholder="Password"
           onChange={loginHandler}
         />
-        {/* <button onClick={submitTodoHandler} type="submit" id="new-task-submit"><i className="fa-solid fa-square-plus"></i></button> */}
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+          onClick={submitTodoHandler}
+          type="submit"
+          id="new-task-submit"
+        >
+          login
+        </button>
       </form>
       <div className="icons">
         <Link to="/signup" id="house">
-          <FaUserPlus/>
+          <FaUserPlus />
         </Link>
         <button>
           <img src={require("./SOS.svg")} />

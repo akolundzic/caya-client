@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import About from "./components/About";
 import Login from "./components/Login";
 import Events from "./components/Events";
 import Signup from "./components/Signup";
+import Profile from "./components/Profile";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Testtailwind from "./components/testtailwind";
 import "font-awesome/css/font-awesome.min.css";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
 
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty("--vh", `${vh}px`);
-  
+
   let vw = window.innerWidth * 0.01;
   document.documentElement.style.setProperty("--vw", `${vw}px`);
 
@@ -32,12 +32,17 @@ awesome.min.css"
 wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
             crossorigin="anonymous"
           ></link>
-          <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet"></link>
+          <link
+            href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css"
+            rel="stylesheet"
+          ></link>
 
           <title>CAYA</title>
         </head>
         <Routes>
           <Route exact path="/About" element={<About />} />
+          <Route path="/profile/:id" element={<Profile />} />
+
           <Route
             exact
             path="/"
@@ -56,7 +61,6 @@ wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
               />
             }
           />
-          <Route exact path="/test" element={<Testtailwind />} />
         </Routes>
       </html>
     </div>
