@@ -11,8 +11,8 @@ const Cardevent = () => {
        <div>
       {/* Grid start */}
       
-      <div className=" grid grid-cols-3 oneevent shadow hover:shadow-md rounded-lg  cursor-pointer">
-        <div className="  w-60 cols-span-2 grid">
+      <div className=" grid grid-cols-3 oneevent border shadow hover:shadow-md rounded-lg  cursor-pointer">
+        <div className="  w-50 ">
           <div className="h-8 ">
             <p id="cardtext">
               <div className="w-8">Mo</div>
@@ -22,7 +22,7 @@ const Cardevent = () => {
           </div>
           <div>
             {" "}
-            <h2>Title</h2>
+            <h2 className="font-extrabold">Title</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt
@@ -36,7 +36,7 @@ const Cardevent = () => {
             </p>
           </div>
         </div>
-        <div className=" w-40 cols-span-1 grid">
+        <div className=" w-35 ">
           <div>
             <p id="cardtext">18:00</p>
           </div>
@@ -48,10 +48,10 @@ const Cardevent = () => {
             />
           </div>
     
-          <div className="h-8 pt-4 pb-4">
+          <div className="h-8 pt-2  ">
            
-          <div><button className="button">going</button>
-          <button><FaShareAlt className="share"/></button></div>
+          <div><button className="button mr-1">going</button>
+          <button><FaShareAlt className="share "/></button></div>
            
            
           </div>

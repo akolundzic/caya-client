@@ -5,9 +5,9 @@ const About = () => {
   return (
     <div>
       <Navbar />
-      <h2 className="text-3xl font-bold underline">About</h2>
+      <h3 className="text-3xl font-bold subtitle mb-4 ml-4">About</h3>
       <div className="about">
-        <p className="about-text">
+        <p className="about-text p-4">
           Jeder Mensch braucht andere Menschen, Einsamkeit verschlimmert nur das
           Leiden. Doch manchmal sind wir so verletzt, sodass das Vertrauen in
           andere verloren haben. Diese Webseite richtet speziell an Menschen,

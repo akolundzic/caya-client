@@ -1,6 +1,6 @@
 import React from "react";
-import { FaUserPlus,FaPlus,FaHouseUser,FaBars} from "react-icons/fa";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaHouseUser,FaBars} from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -11,9 +11,9 @@ const Navbar = () => {
       <button id="Plus">
       +
       </button>
-      <button id="house">
+      <Link to="/events" id="house">
      <i> <FaHouseUser /></i>
-      </button>
+      </Link>
       <button id="house">
         <FaBars />
       </button>

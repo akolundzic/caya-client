@@ -19,7 +19,7 @@ const Signup = ({ setInputsignup, inputsignup }) => {
     // axios
     try {
       await axios
-        .post(`http://localhost:8000/auth/signup`, {
+        .post(`https://soab-app.herokuapp.com/auth/signup`, {
           email: inputsignup.email,
           name: inputsignup.firstname,
           surname: inputsignup.surname,
@@ -37,11 +37,11 @@ const Signup = ({ setInputsignup, inputsignup }) => {
   return (
     <div>
       <Navbar />
-      <Container className="fluid" id="sizeofrow">
-        <Row>
+      <Container className="fluid " id="sizeofrow">
+        <Row >
           <Col sm={11}>
             <h3>Email</h3>
-            <input
+            <input 
               name="email"
               value={inputsignup.email}
               type="text"
@@ -77,7 +77,7 @@ const Signup = ({ setInputsignup, inputsignup }) => {
         <Row>
           <Col sm={11}>
             <h3>Passwort</h3>
-            <input
+            <input 
               name="password"
               value={inputsignup.password}
               type="password"
@@ -85,9 +85,13 @@ const Signup = ({ setInputsignup, inputsignup }) => {
               placeholder="Passwort"
               onChange={loginHandler}
             />
+            
           </Col>
         </Row>
-        <Link to="/" className="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={sendData}>GO!</Link>
+        
+        <Link to="/" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded h-10" onClick={sendData}>Sign Up!</Link>
+        
+       
       </Container>
     </div>
   );

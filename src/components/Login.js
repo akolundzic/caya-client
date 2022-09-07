@@ -19,9 +19,6 @@ function Login({}) {
   };
   
   
-
-
-
   const submitTodoHandler = (e) => {
     e.preventDefault();
     if (inputlogin.email === "" || inputlogin.password === "") {
@@ -30,29 +27,23 @@ function Login({}) {
     } else {
       console.log("else");
       axios
-        .post("http://localhost:8000/auth/login", {
+        .post("https://soab-app.herokuapp.com/auth/login", {
           email: inputlogin.email,
           password: inputlogin.password,
         })
         .then((response) => {
-        console.log(response.data.id);
+        // console.log(response.data.id);
         navigate("/profile/"+response.data.id);
     });
     }
 
-    // try{
-
-    // }
-    // catch(err){
-    //   console.log(err);
-    // }
   };
 
   return (
     <div>
       <h1 id="title">ComeAsYouAre</h1>
       <form className="loginForm">
-        <input
+        <input className="p-2"
           name="email"
           value={inputlogin.email}
           type="text"
@@ -60,7 +51,7 @@ function Login({}) {
           placeholder="Email"
           onChange={loginHandler}
         />
-        <input
+        <input class="p-2"
           name="password"
           value={inputlogin.password}
           type="password"
@@ -69,19 +60,19 @@ function Login({}) {
           onChange={loginHandler}
         />
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+          className="login hover:bg-blue-500 text-white font-bold w-20 h-8 rounded-2 mt-4 "
           onClick={submitTodoHandler}
           type="submit"
-          id="new-task-submit"
+          
         >
           login
         </button>
       </form>
-      <div className="icons">
+      <div className="icons ">
         <Link to="/signup" id="house">
-          <FaUserPlus />
+          <FaUserPlus classname/>
         </Link>
-        <button>
+        <button id="house">
           <img src={require("./SOS.svg")} />
         </button>
         <Link to="/about" id="house">
