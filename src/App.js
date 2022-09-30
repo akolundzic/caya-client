@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 
 function App() {
-  const [inputlogin, setInputlogin] = useState({});
+  // const [inputlogin, setInputlogin] = useState({});
   const [inputsignup, setInputsignup] = useState({});
 
   let vh = window.innerHeight * 0.01;
@@ -47,7 +47,7 @@ wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
             exact
             path="/"
             element={
-              <Login inputlogin={inputlogin} setInputlogin={setInputlogin} />
+              <Login  />
             }
           />
           <Route exact path="/Events" element={<Events />} />

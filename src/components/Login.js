@@ -3,11 +3,14 @@ import { FaUserPlus, FaInfoCircle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Login({}) {
+function Login() {
+  const url = `http://localhost:8000/auth/login`;
+  // const urlheroku = `https://soab-app.herokuapp.com/auth/login`;
   //get props from form, save into setLogin = [email, password]
   const [inputlogin, setInputlogin] = useState({ email: "", password: "" });
-  const [id, setId] = useState("")
+  const [erroroutput, setErroroutput] = useState("");
   
+
   const navigate = useNavigate();
 
   const loginHandler = (e) => {
@@ -17,33 +20,31 @@ function Login({}) {
       [e.target.name]: e.target.value,
     }));
   };
-  
-  
+
   const submitTodoHandler = (e) => {
     e.preventDefault();
     if (inputlogin.email === "" || inputlogin.password === "") {
-     
-      alert("no empty fields");
+      setErroroutput("Please enter your email address and password.");
     } else {
-      console.log("else");
       axios
-        .post("https://soab-app.herokuapp.com/auth/login", {
+        .post(url, {
           email: inputlogin.email,
           password: inputlogin.password,
         })
         .then((response) => {
-        // console.log(response.data.id);
-        navigate("/profile/"+response.data.id);
-    });
+          console.log(response);
+          navigate("/profile/"+response.data.id);
+        });
     }
-
   };
 
   return (
     <div>
       <h1 id="title">ComeAsYouAre</h1>
-      <form className="loginForm">
-        <input className="p-2"
+      <p></p>
+      <form className="loginForm ">
+        <input
+          className="p-2"
           name="email"
           value={inputlogin.email}
           type="text"
@@ -51,7 +52,8 @@ function Login({}) {
           placeholder="Email"
           onChange={loginHandler}
         />
-        <input class="p-2"
+        <input
+          class="p-2"
           name="password"
           value={inputlogin.password}
           type="password"
@@ -60,20 +62,19 @@ function Login({}) {
           onChange={loginHandler}
         />
         <button
-          className="login hover:bg-blue-500 text-white font-bold w-20 h-8 rounded-2 mt-4 "
+          className="login hover:bg-blue-500 text-white font-bold w-20 h-8 rounded-2 mt-2 "
           onClick={submitTodoHandler}
           type="submit"
-          
         >
           login
         </button>
       </form>
       <div className="icons ">
         <Link to="/signup" id="house">
-          <FaUserPlus classname/>
+          <FaUserPlus classname />
         </Link>
         <button id="house">
-          <img src={require("./SOS.svg")} />
+          <img src={require("./SOS.svg")} alt="Notrufnummer" />
         </button>
         <Link to="/about" id="house">
           <FaInfoCircle />

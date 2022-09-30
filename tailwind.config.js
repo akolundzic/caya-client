@@ -1,3 +1,4 @@
+const colors = require("tailwindcss/colors");
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -5,7 +6,13 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+     
+    },
+    colors: {
+      'stone':'#a8a29e',
+      'midnight': '#121063',
+    },
   },
   plugins: [],
-}
+};

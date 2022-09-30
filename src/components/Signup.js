@@ -4,9 +4,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Navbar from "./Navbar";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Signup = ({ setInputsignup, inputsignup }) => {
+  const url = `http://localhost:8000/auth/signup`;
+  // const heroku=`https://soab-app.herokuapp.com/auth/signup`
+
   const loginHandler = (e) => {
     setInputsignup((prevState) => ({
       ...prevState,
@@ -16,10 +19,10 @@ const Signup = ({ setInputsignup, inputsignup }) => {
   // console.log(inputsignup);
 
   const sendData = async () => {
-    // axios
+    // axios8
     try {
       await axios
-        .post(`https://soab-app.herokuapp.com/auth/signup`, {
+        .post(url, {
           email: inputsignup.email,
           name: inputsignup.firstname,
           surname: inputsignup.surname,
@@ -38,10 +41,10 @@ const Signup = ({ setInputsignup, inputsignup }) => {
     <div>
       <Navbar />
       <Container className="fluid " id="sizeofrow">
-        <Row >
+        <Row>
           <Col sm={11}>
             <h3>Email</h3>
-            <input 
+            <input
               name="email"
               value={inputsignup.email}
               type="text"
@@ -77,7 +80,7 @@ const Signup = ({ setInputsignup, inputsignup }) => {
         <Row>
           <Col sm={11}>
             <h3>Passwort</h3>
-            <input 
+            <input
               name="password"
               value={inputsignup.password}
               type="password"
@@ -85,13 +88,17 @@ const Signup = ({ setInputsignup, inputsignup }) => {
               placeholder="Passwort"
               onChange={loginHandler}
             />
-            
           </Col>
         </Row>
-        
-        <Link to="/" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded h-10" onClick={sendData}>Sign Up!</Link>
-        
-       
+        <button >
+          <Link
+            to="/"
+            className="bg-blue-400 hover:bg-blue-600 text-white font-bold w-20 h-8 shadow-lg rounded-2 "
+            onClick={sendData}
+          >
+            Sign Up!
+          </Link>
+        </button>
       </Container>
     </div>
   );

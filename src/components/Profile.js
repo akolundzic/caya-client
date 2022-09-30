@@ -11,29 +11,37 @@ const Profile = () => {
   const params = useParams();
   const id = params.id;
   const [user, setUser] = useState();
+  // const [logout, setLogout] = useState();
+  const navigate = useNavigate();
 
-  const url = "https://soab-app.herokuapp.com/auth/users/" + id;
-  // const url = "http://localhost:8000/auth/users/"+id;
-  console.log(url);
+  // const url = "https://soab-app.herokuapp.com/auth/users/"+id;
 
   useEffect(() => {
     getUserdata();
   }, []);
 
   const logoutHandler = (e) => {
-    
+    e.preventDefault();
+
+    //   axios
+    //   .post("https://soab-app.herokuapp.com/auth/login", {
+    //     email: inputlogin.email,
+    //     password: inputlogin.password,
+    //   })
+    //   .then((response) => {
+    //   console.log(response.data.id);
+    // });
+    navigate("/");
   };
 
   const getUserdata = async () => {
     await axios
-      .get(url)
+      .get("http://localhost:8000/auth/users/63319bd0ec9843b2eaa3cfab")
       .then((response) => {
         setUser(response.data);
-        console.log(response);
       })
       .catch((err) => {
         console.log(err);
-        // alert("Error: " + id);
       });
   };
 
@@ -43,7 +51,7 @@ const Profile = () => {
         <div>
           <Navbar />
           <div class=" p-2   ">
-            {user ? <h1 id="subtitles">Profiel {user.name}</h1> : "loading..."}
+            <h1 id="subtitles">Profiel {user.name}</h1>
           </div>
           <div className=" items-center  grid grid-cols-3 oneevent shadow hover:shadow-md rounded-lg  cursor-pointer m-1">
             <div className=" h-10   ">
@@ -51,7 +59,7 @@ const Profile = () => {
                 <img
                   src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
                   className="w-12 h-auto rounded-full pic "
-                  alt=""
+                  alt="Prfilfoto"
                 />
               </div>
             </div>
@@ -59,6 +67,7 @@ const Profile = () => {
               <p id="cardtext">(Drücke auf das Bild links)</p>
             </div>
             <div>
+              ,{" "}
               <button>
                 {/* <i className='bx bxs-edit iconcolor ' size={"2rem"}/> */}
                 <FaRegEdit className="iconcolor" size={"3rem"} />
@@ -119,14 +128,13 @@ const Profile = () => {
           </div>
           {/* login hover:bg-blue-500 text-white font-bold w-20 h-8 rounded-2 mt-4  */}
           {/* ---- */}
-
-          <button
-            className="login hover:bg-blue-500 text-white font-bold w-20 h-8 rounded-2 shadow-lg "
-            // onClick={submitTodoHandler}
-            type="submit"
-          >
-            logout
+          <div className="flex justify-center ">
+          <button className= "  login hover:bg-blue-500 text-white font-bold w-20 h-8 rounded-2 mt-2 ">
+            <Link to="/"  onClick={logoutHandler} type="submit">
+              logout
+            </Link>
           </button>
+          </div>
         </div>
       ) : (
         "LOADING..."
