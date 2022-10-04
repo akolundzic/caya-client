@@ -7,8 +7,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Signup = ({ setInputsignup, inputsignup }) => {
-  const url = `http://localhost:8000/auth/signup`;
-  // const heroku=`https://soab-app.herokuapp.com/auth/signup`
+  // const url = `http://localhost:8000/auth/signup`;
+  const heroku=`https://soab-app.herokuapp.com/auth/signup`
 
   const loginHandler = (e) => {
     setInputsignup((prevState) => ({
@@ -22,7 +22,7 @@ const Signup = ({ setInputsignup, inputsignup }) => {
     // axios8
     try {
       await axios
-        .post(url, {
+        .post(heroku, {
           email: inputsignup.email,
           name: inputsignup.firstname,
           surname: inputsignup.surname,
@@ -33,6 +33,7 @@ const Signup = ({ setInputsignup, inputsignup }) => {
           console.log(this.state.response);
         });
       // this.setState({ data: json });
+      //rather use useCallback Hook
     } catch (err) {
       console.log(err);
     }

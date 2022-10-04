@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { FaUserPlus, FaInfoCircle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Errorhandler from "./Errorhandler";
 
 function Login() {
-  const url = `http://localhost:8000/auth/login`;
-  // const urlheroku = `https://soab-app.herokuapp.com/auth/login`;
+  // const url = `http://localhost:8000/auth/login`;
+  const urlheroku = `https://soab-app.herokuapp.com/auth/login`;
   //get props from form, save into setLogin = [email, password]
   const [inputlogin, setInputlogin] = useState({ email: "", password: "" });
   const [erroroutput, setErroroutput] = useState("");
-  
 
   const navigate = useNavigate();
 
@@ -27,20 +27,19 @@ function Login() {
       setErroroutput("Please enter your email address and password.");
     } else {
       axios
-        .post(url, {
+        .post(urlheroku, {
           email: inputlogin.email,
           password: inputlogin.password,
         })
         .then((response) => {
-          console.log(response);
-          navigate("/profile/"+response.data.id);
+          navigate("/profile/" + response.data.id);
         });
     }
   };
 
   return (
     <div>
-      <h1 id="title">ComeAsYouAre</h1>
+      <h1 id="title">CAYA</h1>
       <p></p>
       <form className="loginForm ">
         <input

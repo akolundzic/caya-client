@@ -6,6 +6,7 @@ import { FaRegEdit, FaUserAlt } from "react-icons/fa";
 import { BsEnvelopeFill } from "react-icons/bs";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
+
 // RiDeleteBack2Fill
 const Profile = () => {
   const params = useParams();
@@ -13,9 +14,8 @@ const Profile = () => {
   const [user, setUser] = useState();
   // const [logout, setLogout] = useState();
   const navigate = useNavigate();
-
-  // const url = "https://soab-app.herokuapp.com/auth/users/"+id;
-
+  const url = "https://soab-app.herokuapp.com/auth/users/" + id;
+  // const testurl = `http://localhost:8000/auth/users` + id;
   useEffect(() => {
     getUserdata();
   }, []);
@@ -36,9 +36,10 @@ const Profile = () => {
 
   const getUserdata = async () => {
     await axios
-      .get("http://localhost:8000/auth/users/63319bd0ec9843b2eaa3cfab")
+      .get(url)
       .then((response) => {
         setUser(response.data);
+        console.log(response);
       })
       .catch((err) => {
         console.log(err);
@@ -129,11 +130,11 @@ const Profile = () => {
           {/* login hover:bg-blue-500 text-white font-bold w-20 h-8 rounded-2 mt-4  */}
           {/* ---- */}
           <div className="flex justify-center ">
-          <button className= "  login hover:bg-blue-500 text-white font-bold w-20 h-8 rounded-2 mt-2 ">
-            <Link to="/"  onClick={logoutHandler} type="submit">
-              logout
-            </Link>
-          </button>
+            <button className="  login hover:bg-blue-500 text-white font-bold w-20 h-8 rounded-2 mt-2 ">
+              <Link to="/" onClick={logoutHandler} type="submit">
+                logout
+              </Link>
+            </button>
           </div>
         </div>
       ) : (

@@ -30,7 +30,7 @@ awesome.min.css"
             rel="stylesheet"
             integrity="sha384-
 wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           ></link>
           <link
             href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css"
@@ -42,7 +42,6 @@ wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         <Routes>
           <Route exact path="/About" element={<About />} />
           <Route path="/profile/:id" element={<Profile />} />
-
           <Route
             exact
             path="/"
