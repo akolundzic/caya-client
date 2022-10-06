@@ -9,8 +9,8 @@ body {
   background-attachment: fixed;
   height: calc(var(--vh, 1vh) * 100);
 }
-#errorpic{
-  background-image: url("./img/desertbackgroundnew.svg");
+#errorpic {
+  background-image: url("./img/roboterfail.jpg");
 }
 
 .App {
