@@ -6,6 +6,7 @@ import { FaRegEdit, FaUserAlt } from "react-icons/fa";
 import { BsEnvelopeFill } from "react-icons/bs";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
+import Errorhandler from "./Errorhandler";
 
 // RiDeleteBack2Fill
 const Profile = () => {
@@ -16,6 +17,8 @@ const Profile = () => {
   const navigate = useNavigate();
   const url = "https://soab-app.herokuapp.com/auth/users/" + id;
   // const testurl = `http://localhost:8000/auth/users` + id;
+  const error = "User account not found, please try again";
+
   useEffect(() => {
     getUserdata();
   }, []);
@@ -39,7 +42,8 @@ const Profile = () => {
       .get(url)
       .then((response) => {
         setUser(response.data);
-        console.log(response);
+        // console.log(Object.keys(response));
+        //status, config
       })
       .catch((err) => {
         console.log(err);
@@ -138,7 +142,7 @@ const Profile = () => {
           </div>
         </div>
       ) : (
-        "LOADING..."
+        <Errorhandler errorMessage={error} />
       )}
     </>
   );

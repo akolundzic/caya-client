@@ -9,6 +9,10 @@ body {
   background-attachment: fixed;
   height: calc(var(--vh, 1vh) * 100);
 }
+#errorpic{
+  background-image: url("./img/desertbackgroundnew.svg");
+}
+
 .App {
   position: relative;
   /* width: 100%;
@@ -81,10 +85,8 @@ button {
   transition-duration: 0.4s;
 }
 button:hover {
-  background-color:#0284c7; /* Green */
-  
+  background-color: #0284c7; /* Green */
 }
-
 
 /* .button {
   height: 2rem;
@@ -107,10 +109,11 @@ button:hover {
   padding-bottom: 2rem;
   font-size: 2rem;
   text-align: center;
-  font-family: 'Teko', sans-serif;
+  font-family: "Teko", sans-serif;
 }
 
 /*Boxes*/
+
 .about {
   position: relative;
   width: 90vw;
@@ -120,6 +123,7 @@ button:hover {
   background-color: rgba(254, 255, 251, 1);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
+
 /*Fonts*/
 h2 {
   font-family: "Roboto";
@@ -174,6 +178,17 @@ p {
   position: absolute;
   text-align: center;
 }
+#errormessage {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  color: #ffffff;
+  text-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+  font-size: xx-large;
+  margin-top: 20vh;
+  text-align: center;
+}
+
 .subtitles {
   position: absolute;
   flex-direction: row;
@@ -181,10 +196,8 @@ p {
 .login {
   background-color: rgba(146, 138, 130, 1);
   box-shadow: black;
-  
-  
 }
-#test{
+#test {
   justify-content: center;
 }
 /*Event styles*/
