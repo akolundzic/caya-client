@@ -10,7 +10,6 @@ function Login() {
   //get props from form, save into setLogin = [email, password]
   const [inputlogin, setInputlogin] = useState({ email: "", password: "" });
   const [erroroutput, setErroroutput] = useState("");
-
   const navigate = useNavigate();
 
   const loginHandler = (e) => {
@@ -25,7 +24,6 @@ function Login() {
     e.preventDefault();
     if (inputlogin.email === "" || inputlogin.password === "") {
       setErroroutput("Please enter your email address and password.");
-      
     } else {
       axios
         .post(urlheroku, {
@@ -41,7 +39,13 @@ function Login() {
   return (
     <div>
       <h1 id="title">CAYA</h1>
-      <p></p>
+
+      {/* <h1 className="text-red-800 text-center mt-4">Please enter your email address and password.</h1> */}
+      {erroroutput ? (
+        <h1 className="text-red-800 font-bold bg-white bg-opacity-50 bg-rounded text-center box-content  pl-2 pr-2  ml-2 mr-2">
+          {erroroutput}
+        </h1>
+      ) : null}
       <form className="loginForm ">
         <input
           className="p-2"

@@ -11,6 +11,11 @@ body {
 }
 #errorpic {
   background-image: url("./img/roboterfail.jpg");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
 }
 
 .App {
@@ -25,7 +30,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 13%;
+  margin-top: 5%;
   margin-bottom: 5%;
 }
 
@@ -63,7 +68,7 @@ input {
   flex-direction: row;
   align-items: center;
 }
-.icons {
+.icons{
   padding: 2%;
   display: flex;
   align-items: center;
@@ -87,7 +92,20 @@ button {
 button:hover {
   background-color: #0284c7; /* Green */
 }
-
+.textbox {
+  align-items: center;
+  margin-top: 40%;
+  justify-content: center;
+  top: 16.75rem;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height:1.438rem;
+  text-align: center;
+  color: #fefffb;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 /* .button {
   height: 2rem;
   width: 4rem;
@@ -178,14 +196,14 @@ p {
   position: absolute;
   text-align: center;
 }
-#errormessage {
+#errormessagepage {
   display: flex;
   justify-content: center;
   font-weight: 500;
-  color: #ffffff;
+  color: rgb(87, 170, 166);
   text-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
-  font-size: xx-large;
-  margin-top: 20vh;
+  font-size: x-large;
+  /* margin-top: 20vh; */
   text-align: center;
 }
 

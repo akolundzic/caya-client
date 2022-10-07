@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Events from "./components/Events";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
+import Logout from "./components/Logout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 
@@ -42,17 +43,12 @@ wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         <Routes>
           <Route exact path="/About" element={<About />} />
           <Route path="/profile/:id" element={<Profile />} />
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/logout" element={<Logout />} />
+          <Route exact path="/events" element={<Events />} />
           <Route
             exact
-            path="/"
-            element={
-              <Login  />
-            }
-          />
-          <Route exact path="/Events" element={<Events />} />
-          <Route
-            exact
-            path="/Signup"
+            path="/signup"
             element={
               <Signup
                 inputsignup={inputsignup}

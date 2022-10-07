@@ -17,25 +17,25 @@ const Profile = () => {
   const navigate = useNavigate();
   const url = "https://soab-app.herokuapp.com/auth/users/" + id;
   // const testurl = `http://localhost:8000/auth/users` + id;
-  const error = "User account not found, please try again";
+  const error = "User account not found, please sign in or contact us. ";
 
   useEffect(() => {
     getUserdata();
   }, []);
 
-  const logoutHandler = (e) => {
-    e.preventDefault();
+  // const logoutHandler = (e) => {
+  //   e.preventDefault();
 
-    //   axios
-    //   .post("https://soab-app.herokuapp.com/auth/login", {
-    //     email: inputlogin.email,
-    //     password: inputlogin.password,
-    //   })
-    //   .then((response) => {
-    //   console.log(response.data.id);
-    // });
-    navigate("/");
-  };
+  //   //   axios
+  //   //   .post("https://soab-app.herokuapp.com/auth/login", {
+  //   //     email: inputlogin.email,
+  //   //     password: inputlogin.password,
+  //   //   })
+  //   //   .then((response) => {
+  //   //   console.log(response.data.id);
+  //   // });
+  //   navigate("/");
+  // };
 
   const getUserdata = async () => {
     await axios
@@ -135,7 +135,7 @@ const Profile = () => {
           {/* ---- */}
           <div className="flex justify-center ">
             <button className="  login hover:bg-blue-500 text-white font-bold w-20 h-8 rounded-2 mt-2 ">
-              <Link to="/" onClick={logoutHandler} type="submit">
+              <Link to="/logout"  type="submit">
                 logout
               </Link>
             </button>

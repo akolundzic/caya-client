@@ -7,21 +7,20 @@ const Errorhandler = ({ errorMessage }) => {
 
   useEffect(() => {
     setErrors(errorMessage);
-    // const timer = setTimeout(() => navigate("/"), 4000);
-    // return () => clearTimeout(timer);
+    const timer = setTimeout(() => navigate("/"), 4000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      <div className="">
+      <body id="errorpic">
         <h1 id="title">404</h1>
         {
-          <h1 id="errormessage">
-            {/* <h1 className=" align-middle text-center leading-10 text-3xl tracking-wider mt-12 "> */}
+          <h1 id="errormessagepage">
             {errors}
           </h1>
         }
-      </div>
+      </body>
     </>
   );
 };
