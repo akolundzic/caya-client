@@ -13,7 +13,6 @@ const Profile = () => {
   const params = useParams();
   const id = params.id;
   const [user, setUser] = useState();
-  // const [logout, setLogout] = useState();
   const navigate = useNavigate();
   const url = "https://soab-app.herokuapp.com/auth/users/" + id;
   // const testurl = `http://localhost:8000/auth/users` + id;

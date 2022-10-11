@@ -14,9 +14,9 @@ const Logout = () => {
   const clearCookie = async () => {
     try {
       await axios.get(urlheroku).then((response) => {
-        console.log(response);
-        // const timer = setTimeout(() => navigate("/"), 4000);
-        // return () => clearTimeout(timer);
+       
+        const timer = setTimeout(() => navigate("/"), 4000);
+        return () => clearTimeout(timer);
       });
     } catch (err) {
       console.log(err);
