@@ -7,20 +7,16 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Signup = ({ setInputsignup, inputsignup }) => {
-  const errors = {};
-  const [erroroutput, setErroroutput] = useState("");
-  const handleErrors = (err) => {
-    //duplicate error code
-     const obj =  Object.values(err.response)[0].errors;
-     if(err.code){
-      for(const i in obj){
-       errors[i]=obj;
-      }};
-     return errors;
-  };
-
-
-
+ 
+  const [erroroutput, setErroroutput] = useState({
+    email:"Please provide a valid email address",
+    surname:"Please provide a your surname",
+    name:"Please provide a name",
+    password:"Please provide a password with at leat 6 digits"
+  });
+  const [errstate, setErrstate] = useState(false);
+  //    const obj =  Object.values(err.response)[0].errors;
+ 
   // const url = `http://localhost:8000/auth/signup`;
   const heroku=`https://soab-app.herokuapp.com/auth/signup`;
   const [messages, setMessages] = useState("");
@@ -33,8 +29,7 @@ const Signup = ({ setInputsignup, inputsignup }) => {
     }
     ));
   };
-  // console.log(inputsignup);
-
+  
   const sendData = async () => {
     // axios8
     try {
@@ -50,8 +45,9 @@ const Signup = ({ setInputsignup, inputsignup }) => {
         });
       
     } catch (err) {
-      const errout = handleErrors(err);
-      console.log(erroroutput);
+      console.log(err.response);
+      setErrstate(true);
+     
     }
   };
 
@@ -61,7 +57,9 @@ const Signup = ({ setInputsignup, inputsignup }) => {
       <Container className="fluid " id="sizeofrow">
         <Row>
           <Col sm={11}>
-           { <h3>Email {erroroutput}</h3>}
+           <h3>Email</h3> <div className="errortextcontacts"> {errstate ? erroroutput.email:null}</div>
+          
+           
             <input
               name="email"
               value={inputsignup.email}
