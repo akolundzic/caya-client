@@ -8,13 +8,7 @@ import { Link } from "react-router-dom";
 
 const Signup = ({ setInputsignup, inputsignup }) => {
  
-  const [erroroutput, setErroroutput] = useState({
-    email:"Please provide a valid email address",
-    surname:"Please provide a your surname",
-    name:"Please provide a name",
-    password:"Please provide a password with at leat 6 digits"
-  });
-  const [errstate, setErrstate] = useState(false);
+  const [errstate, setErrstate] = useState({email:null, password:null});
   //    const obj =  Object.values(err.response)[0].errors;
  
   // const url = `http://localhost:8000/auth/signup`;
@@ -23,7 +17,7 @@ const Signup = ({ setInputsignup, inputsignup }) => {
 
   const loginHandler = (e) => {
     setInputsignup((prevState) => (
-      {
+      { 
       ...prevState,
       [e.target.name]: e.target.value,
     }
@@ -33,21 +27,38 @@ const Signup = ({ setInputsignup, inputsignup }) => {
   const sendData = async () => {
     // axios8
     try {
-      await axios
+     
+      const obj =await axios
         .post(heroku, {
           email: inputsignup.email,
           name: inputsignup.firstname,
           surname: inputsignup.surname,
           password: inputsignup.password,
-        })
-        .then(() => { 
+        });
+       if(obj.data.login){
+        obj.then(()=>{
           setMessages(inputsignup.surname+", you successfully signed up");
         });
+       }
+       else{
+        setMessages(obj.data.message);
+        console.log(obj.data.message);
+       }
+
+       
       
+      //   .then((response) => { 
+      //     if(response.data.login){
+      //     setMessages(inputsignup.surname+", you successfully signed up");
+      //     } else{
+      //       setMessages(response.data.message);
+      //     }
+      //   });
+      // console.log(messages);
     } catch (err) {
-      console.log(err.response);
-      setErrstate(true);
-     
+      const obj = await err.response.data.errors;
+      setErrstate(() =>{return({email:obj.email,password: obj.password }); });
+      
     }
   };
 
@@ -57,9 +68,7 @@ const Signup = ({ setInputsignup, inputsignup }) => {
       <Container className="fluid " id="sizeofrow">
         <Row>
           <Col sm={11}>
-           <h3>Email</h3> <div className="errortextcontacts"> {errstate ? erroroutput.email:null}</div>
-          
-           
+          <h3>Email  </h3> <div className="errortextcontacts"> {errstate.email ? errstate.email:null}</div> 
             <input
               name="email"
               value={inputsignup.email}
@@ -75,8 +84,9 @@ const Signup = ({ setInputsignup, inputsignup }) => {
             <h3>Name</h3>
             <input
               name="firstname"
-              value={inputsignup.firstname}
-              type="text"
+              required value={inputsignup.firstname}
+               type="text"
+
               id="firstname"
               placeholder="Vorname"
               onChange={loginHandler}
@@ -87,7 +97,7 @@ const Signup = ({ setInputsignup, inputsignup }) => {
             <input
               name="surname"
               value={inputsignup.surname}
-              type="text"
+              required type="text"
               id="surname"
               placeholder="Nachname"
               onChange={loginHandler}
@@ -96,11 +106,11 @@ const Signup = ({ setInputsignup, inputsignup }) => {
         </Row>
         <Row>
           <Col sm={11}>
-            <h3>Passwort</h3>
+            <h3>Passwort</h3><div className="errortextcontacts"> {errstate.password ? errstate.password:null}</div> 
             <input
               name="password"
               value={inputsignup.password}
-              type="password"
+              required type="password"
               id="password"
               placeholder="Passwort"
               onChange={loginHandler}
@@ -110,7 +120,7 @@ const Signup = ({ setInputsignup, inputsignup }) => {
         <button className="login hover:bg-blue-500 text-white font-bold w-20 h-8 rounded-2 mt-2  "
          onClick={sendData}>
         {/* <Link
-            to="/"
+            to="/sucess"
             onClick={sendData}
           > */}
             Sign Up!
@@ -122,3 +132,6 @@ const Signup = ({ setInputsignup, inputsignup }) => {
 };
 
 export default Signup;
+
+
+{/* <div className="errortextcontacts"> {errstate ? erroroutput.email:null}</div>  */}

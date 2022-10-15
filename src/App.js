@@ -9,6 +9,7 @@ import Profile from "./components/Profile";
 import Logout from "./components/Logout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
+import Transfer from "./components/Transfer";
 
 function App() {
   // const [inputlogin, setInputlogin] = useState({});
@@ -56,6 +57,7 @@ wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
               />
             }
           />
+           <Route exact path="/check" element={<Transfer />} />
         </Routes>
       </html>
     </div>
