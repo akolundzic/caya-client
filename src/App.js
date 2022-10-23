@@ -7,6 +7,7 @@ import Events from "./components/Events";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import Logout from "./components/Logout";
+import CreateEvent from "./components/CreateEvent";
 import SuccessLogin from "./components/Transfer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
@@ -47,6 +48,7 @@ wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
           <Route exact path="/" element={<Login />} />
           <Route exact path="/logout" element={<Logout />} />
           <Route exact path="/events" element={<Events />} />
+          <Route exact path="/postevent" element={<CreateEvent />} />
           <Route
             exact
             path="/signup"

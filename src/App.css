@@ -40,9 +40,10 @@ body {
 .row {
   justify-content: flex-start;
 }
-input {
+input, .loginForm input {
   height: 2.5rem;
   padding: 4%;
+  color: #A58D76;
   /* margin-bottom: 2%; */
   border-radius: 2rem;
   border: 2px solid hsla(28, 13%, 71%, 1);
@@ -185,6 +186,7 @@ p {
   line-height: 18px;
   color: #766e6e;
 }
+
 
 .about-text {
   color: rgba(146, 138, 130, 1);
