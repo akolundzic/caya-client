@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function SucessLogin() {
+const SuccessLogin = () => {
  const navigate = useNavigate();
  useEffect(() => {
   const timer = setTimeout(() => navigate("/"), 4000);
@@ -17,4 +17,5 @@ export default function SucessLogin() {
     
     </>
   )
-}
+};
+export default SuccessLogin;

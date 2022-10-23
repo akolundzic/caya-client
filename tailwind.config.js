@@ -10,7 +10,7 @@ module.exports = {
      
     },
     colors: {
-      'stone':'#a8a29e',
+      'stone':'#928A82',
       'midnight': '#121063',
     },
   },

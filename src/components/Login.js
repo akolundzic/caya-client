@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaUserPlus, FaInfoCircle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Errorhandler from "./Errorhandler";
+// import Errorhandler from "./Errorhandler";
 
 function Login() {
   // const url = `http://localhost:8000/auth/login`;
@@ -23,7 +23,7 @@ function Login() {
   const submitTodoHandler = (e) => {
     e.preventDefault();
     if (inputlogin.email === "" || inputlogin.password === "") {
-      setErroroutput("Please enter your email address and password.");
+      setErroroutput("Bitte gib deine email-Adrese und Passwort ein.");
     } else {
       axios
         .post(urlheroku, {
@@ -57,7 +57,7 @@ function Login() {
           onChange={loginHandler}
         />
         <input
-          class="p-2"
+          className="p-2"
           name="password"
           value={inputlogin.password}
           type="password"

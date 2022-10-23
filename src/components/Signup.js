@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Navbar from "./Navbar";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Signup = ({ setInputsignup, inputsignup }) => {
  
-  const [errstate, setErrstate] = useState({email:null, password:null});
-  //    const obj =  Object.values(err.response)[0].errors;
- 
+  const [errstate, setErrstate] = useState({ 
+    email:null, password:null, name:null,surname:null});
   // const url = `http://localhost:8000/auth/signup`;
   const heroku=`https://soab-app.herokuapp.com/auth/signup`;
-  const [messages, setMessages] = useState("");
+  const navigate = useNavigate();
 
   const loginHandler = (e) => {
     setInputsignup((prevState) => (
@@ -23,52 +22,33 @@ const Signup = ({ setInputsignup, inputsignup }) => {
     }
     ));
   };
+  //object handler errorstate[key]=value
+  // const setAll = (obj, val) => Object.keys(obj).forEach(k => obj[k] = val);
+  // const setNull = obj => setAll(obj, null);
   
   const sendData = async () => {
-    // axios8
-    try {
-     
-      const obj =await axios
+  
+     await axios
         .post(heroku, {
           email: inputsignup.email,
           name: inputsignup.firstname,
           surname: inputsignup.surname,
           password: inputsignup.password,
-        });
-       if(obj.data.login){
-        obj.then(()=>{
-          setMessages(inputsignup.surname+", you successfully signed up");
-        });
-       }
-       else{
-        setMessages(obj.data.message);
-        console.log(obj.data.message);
-       }
-
-       
-      
-      //   .then((response) => { 
-      //     if(response.data.login){
-      //     setMessages(inputsignup.surname+", you successfully signed up");
-      //     } else{
-      //       setMessages(response.data.message);
-      //     }
-      //   });
-      // console.log(messages);
-    } catch (err) {
-      const obj = await err.response.data.errors;
-      setErrstate(() =>{return({email:obj.email,password: obj.password }); });
-      
-    }
+        }).then((response) =>{
+          navigate("/success");
+        }).catch(err => {
+          setErrstate(err.response.data);
+        } );
+        // console.log(errstate);
   };
-
+  
   return (
     <div>
       <Navbar />
       <Container className="fluid " id="sizeofrow">
         <Row>
           <Col sm={11}>
-          <h3>Email  </h3> <div className="errortextcontacts"> {errstate.email ? errstate.email:null}</div> 
+          <h3>Email  </h3> <div className="errortextcontacts"> {errstate.email}</div> 
             <input
               name="email"
               value={inputsignup.email}
@@ -81,23 +61,21 @@ const Signup = ({ setInputsignup, inputsignup }) => {
         </Row>
         <Row>
           <Col sm={11}>
-            <h3>Name</h3>
+            <h3>Name</h3><div className="errortextcontacts"> {errstate.name}</div> 
             <input
               name="firstname"
-              required value={inputsignup.firstname}
-               type="text"
-
+              value={inputsignup.firstname}
+              type="text"
               id="firstname"
               placeholder="Vorname"
               onChange={loginHandler}
             />
           </Col>
-          
-          <Col>
+          <Col><div className="errortextcontacts"> {errstate.surname}</div> 
             <input
               name="surname"
               value={inputsignup.surname}
-              required type="text"
+              type="text"
               id="surname"
               placeholder="Nachname"
               onChange={loginHandler}
@@ -106,11 +84,11 @@ const Signup = ({ setInputsignup, inputsignup }) => {
         </Row>
         <Row>
           <Col sm={11}>
-            <h3>Passwort</h3><div className="errortextcontacts"> {errstate.password ? errstate.password:null}</div> 
+            <h3>Passwort</h3><div className="errortextcontacts"> {errstate.password}</div> 
             <input
               name="password"
               value={inputsignup.password}
-              required type="password"
+              type="password"
               id="password"
               placeholder="Passwort"
               onChange={loginHandler}
@@ -120,12 +98,13 @@ const Signup = ({ setInputsignup, inputsignup }) => {
         <button className="login hover:bg-blue-500 text-white font-bold w-20 h-8 rounded-2 mt-2  "
          onClick={sendData}>
         {/* <Link
-            to="/sucess"
+            to="/success"
             onClick={sendData}
           > */}
             Sign Up!
           {/* </Link> */}
         </button>
+        
       </Container>
     </div>
   );
@@ -134,4 +113,3 @@ const Signup = ({ setInputsignup, inputsignup }) => {
 export default Signup;
 
 
-{/* <div className="errortextcontacts"> {errstate ? erroroutput.email:null}</div>  */}

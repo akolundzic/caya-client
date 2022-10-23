@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { RiH1 } from "react-icons/ri";
+// import { RiH1 } from "react-icons/ri";
 
 const Logout = () => {
   const urlheroku = `https://soab-app.herokuapp.com/auth/logout`;
@@ -14,7 +14,6 @@ const Logout = () => {
   const clearCookie = async () => {
     try {
       await axios.get(urlheroku).then((response) => {
-       
         const timer = setTimeout(() => navigate("/"), 4000);
         return () => clearTimeout(timer);
       });
@@ -26,7 +25,6 @@ const Logout = () => {
   return (
     <>
       <h1 id="title">Auf Wiedersehen</h1>
-
       <h1 className=" textbox ">
         Falls du doch Hilfe braucht,
         <br></br>
@@ -34,8 +32,8 @@ const Logout = () => {
         <br></br>
         SoS Symbol
       </h1>
-      <div className="justify-center flex mt-4">
-        <button className="login hover:bg-blue-500 text-white font-bold w-20 h-8 rounded-2  ">
+      <div className="justify-center flex mt-4 ">
+        <button className="login hover:bg-500 text-white font-bold w-20 h-8 rounded-2 shadow ">
           <Link to="/">login</Link>
         </button>
         <div className="pl-2">
@@ -54,5 +52,5 @@ const Logout = () => {
     </>
   );
 };
-// mt-6 text-white font-bold justify-center align-center text-xl text-center p-4
+
 export default Logout;
