@@ -17,7 +17,9 @@ body {
   background-repeat: no-repeat;
   background-color: #ffffff;
 }
-
+.boxcolor{
+  background-color: rgba(254, 255, 251, 1);
+}
 .App {
   position: relative;
   /* width: 100%;
@@ -45,15 +47,23 @@ input, .loginForm input {
   padding: 4%;
   color: #A58D76;
   /* margin-bottom: 2%; */
-  border-radius: 2rem;
-  border: 2px solid hsla(28, 13%, 71%, 1);
+  border-radius: 0.75rem;
+  border: 1px solid hsla(28, 13%, 71%, 1);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  width: 90vw;
+  width: 90vw; 
 }
 
-#streetname {
-  display: flex;
-  width: 70%;
+
+.flex {
+  width:90vw;
+  
+}
+
+#streetnumer {
+  width:20%;
+}
+#zipcode,#Stadt {
+  width:50%;
 }
 
 #sizeofrow {
@@ -94,7 +104,6 @@ button:hover {
   background-color: #0284c7; /* Green */
 }
 .textbox {
-
   margin-top: 10vh;
   justify-content: center;
   font-family: "Roboto";
@@ -106,21 +115,13 @@ button:hover {
   color: #766e6e;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-/* .button {
-  height: 2rem;
-  width: 4rem;
-  justify-content: center;
-  border: none;
-  background-color: rgba(152, 150, 148, 1);
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  font-family: "Roboto";
- 
+.onlineevent{
+  background-color: rgba(215, 223, 226, 0.51);
+  border-radius: 0.625rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  color: white;
-} */
+  
+}
+
 
 #title {
   padding-top: 4rem;
@@ -300,4 +301,9 @@ p {
 }
 .usercolor {
   color: #928a82;
+}
+/* Toogle switch */
+.toggle-size{
+  width:10%;
+  
 }
